@@ -19,7 +19,7 @@ This is a console application that implements a game based on the Monty Hall pro
 
 1.  **Clone the repository:**
     ```bash
-    git clone
+    git clone https://github.com/Rottenbff/task4.git
     cd task4
     ```
 
