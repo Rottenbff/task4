@@ -42,12 +42,13 @@ impl Morty for ClassicMorty {
         prize_box: u32,
         rick_choice: u32,
     ) -> (Vec<u32>, u32, Option<fair_random::FairRandomResult>) {
+
+        println!("\nMorty: Let’s, uh, generate another value now, I mean, to select a box to keep in the game.");
+
         let other_box_to_keep: u32;
         let second_protocol_result: Option<fair_random::FairRandomResult>;
 
         if rick_choice == prize_box {
-            println!("\nMorty: Uh oh, Rick. You were right. Let's, uh, generate another value to see which other box I'll keep.");
-
             let available_choices: Vec<u32> =
                 (0..total_boxes).filter(|&i| i != rick_choice).collect();
             let prompt = &format!(
@@ -61,7 +62,6 @@ impl Morty for ClassicMorty {
             other_box_to_keep = available_choices[protocol_result.final_value as usize];
             second_protocol_result = Some(protocol_result);
         } else {
-            println!("\nMorty: Alright, Rick. Let's see what happens here (winks).");
             other_box_to_keep = prize_box;
             second_protocol_result = None;
         }
